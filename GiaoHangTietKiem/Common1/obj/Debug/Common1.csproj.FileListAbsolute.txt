@@ -9,3 +9,4 @@ C:\Users\ACER\Documents\GitHub\DoAnWeb_GiaoHangChatLuong\GiaoHangTietKiem\Common
 C:\Users\ACER\Documents\GitHub\DoAnWeb_GiaoHangChatLuong\GiaoHangTietKiem\Common1\obj\Debug\Common1.csproj.CoreCompileInputs.cache
 C:\Users\ACER\Documents\GitHub\DoAnWeb_GiaoHangChatLuong\GiaoHangTietKiem\Common1\obj\Debug\Common1.dll
 C:\Users\ACER\Documents\GitHub\DoAnWeb_GiaoHangChatLuong\GiaoHangTietKiem\Common1\obj\Debug\Common1.pdb
+C:\Users\ACER\Documents\GitHub\DoAnWeb_GiaoHangChatLuong\GiaoHangTietKiem\Common1\obj\Debug\Common1.csproj.AssemblyReference.cache
