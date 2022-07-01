@@ -1,0 +1,65 @@
+﻿@model IEnumerable<GiaoHangTietKiem.Models.KhachHang>
+
+@{
+    ViewBag.Title = "IndexCustomer";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="header-elements">DANH SÁCH KHÁCH HÀNG</h2>
+<style>
+    .header-elements {
+        margin: 20px;
+    }
+</style>
+
+<p class="textDesign">
+    @Html.ActionLink("Thêm mới thông tin khách hàng", "CreateCustomer")
+</p>
+<style>
+    .textDesign {
+        margin-left: 20px;
+    }
+</style>
+
+<table class="table">
+    <hr />
+    <tr>
+        <th>
+            <strong>Họ tên</strong>
+        </th>
+        <th>
+            <strong>Số điện thoại</strong>
+        </th>
+        <th>
+            <strong>Địa chỉ:</strong>
+        </th>
+        <th>
+            <strong>Giới tính:</strong>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GioiTinh)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "EditCustomer", new { id = item.MaKH.Replace(" ", "") }) |
+                @Html.ActionLink("Chi tiết", "DetailsCustomer", new { id = item.MaKH.Replace(" ", "") }) |
+                @Html.ActionLink("Xoá", "DeleteCustomer", new { id = item.MaKH.Replace(" ", "") })
+            </td>
+        </tr>
+    }
+
+</table>

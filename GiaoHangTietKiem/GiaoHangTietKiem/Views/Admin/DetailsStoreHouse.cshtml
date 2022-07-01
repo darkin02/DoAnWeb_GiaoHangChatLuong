@@ -1,0 +1,63 @@
+﻿@model GiaoHangTietKiem.Models.NhaKho
+
+@{
+    ViewBag.Title = "DetailsStoreHouse";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="header-elements">CHI TIẾT THÔNG TIN NHÀ KHO</h2>
+<style>
+    .header-elements {
+        margin: 20px;
+    }
+</style>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenNK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DienTich)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DienTich)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SucChua)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SucChua)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaKV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaKV)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "EditStoreHouse", new { id = Model.MaNK }) |
+    @Html.ActionLink("Trở lại", "IndexStoreHouse")
+</p>

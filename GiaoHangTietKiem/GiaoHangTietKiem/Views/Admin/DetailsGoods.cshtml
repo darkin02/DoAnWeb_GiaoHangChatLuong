@@ -1,0 +1,63 @@
+﻿@model GiaoHangTietKiem.Models.HangHoa
+
+@{
+    ViewBag.Title = "DetailsGoods";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="header-elements">CHI TIẾT THÔNG TIN HÀNG HOÁ</h2>
+<style>
+    .header-elements {
+        margin: 20px;
+    }
+</style>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenHH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenHH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonVT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonVT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaLHH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaLHH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaTien)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "EditGoods", new { id = Model.MaHH }) |
+    @Html.ActionLink("Trở lại", "IndexGoods")
+</p>
