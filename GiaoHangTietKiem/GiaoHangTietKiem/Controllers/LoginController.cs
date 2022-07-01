@@ -100,6 +100,64 @@ namespace GiaoHangTietKiem.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult ForgetPassword(string SDT)
+        {
+            var userkh = data.UserKHs.FirstOrDefault(n => n.SDT.Equals(SDT));
+            if (userkh != null)
+            {
+                string content = System.IO.File.ReadAllText(Server.MapPath("~/template/ComfimForgetPassword.html"));
+                content = content.Replace("{{SDT}}", SDT);
+                String SMS;
+                Random ramdom = new Random();
+                SMS = ramdom.Next(100000, 999999).ToString();
+                content = content.Replace("{{SMS}}", SMS);
+                Session["SMSForgetPass"] = SMS;
+                Session["UserForgetPass"] = userkh;
+                new MailHelper().SendMail(userkh.Email, "Đổi mật khẩu", content);
+                return RedirectToAction("ComfimForgetPassword");
+            }
+            else
+            {
+                SetAlert("Số điện không tồn tại!", "error");
+                return View(SDT);
+            }
+        }
+        public ActionResult ComfimForgetPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ComfimForgetPassword(string sms)
+        {
+            if (Session["SMSForgetPass"].Equals(sms))
+            {
+                return RedirectToAction("NewPassword");
+            }
+            SetAlert("Mã xác nhận không đúng", "error");
+            return View();
+        }
+        public ActionResult NewPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult NewPassword(ForgetPass model)
+        {
+            if (model.Pass.Equals(model.AgainPass))
+            {
+                UserKH kh = (UserKH)Session["UserForgetPass"];
+                data.UserKHs.FirstOrDefault(n => n.SDT.Equals(kh.SDT)).MatKhau = model.Pass;
+                data.SaveChanges();
+                Session["successChangePass"] = true;
+                SetAlert("Đổi mật khẩu thành công", "success");
+            }
+            else
+            {
+                SetAlert("Mật khẩu không khớp", "warning");
+            }
+            return View();
+        }
         protected void SetAlert(string mess, string type)
         {
             TempData["AlretMessage"] = mess;

@@ -472,6 +472,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Models\BaoGiaModel.cs" />
+    <Compile Include="Models\ForgetPass.cs" />
     <Compile Include="Models\HanhTrinh.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -781,6 +782,7 @@
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="template\BaoGia.html" />
+    <Content Include="template\ComfimForgetPassword.html" />
     <Content Include="template\newoder.html" />
     <Content Include="vendor\animate\animate.css" />
     <Content Include="vendor\animsition\css\animsition.css" />
@@ -851,6 +853,8 @@
     <Content Include="Views\Admin\Role.cshtml" />
     <Content Include="Views\Admin\SaveRole.cshtml" />
     <Content Include="Views\Login\ForgetPassword.cshtml" />
+    <Content Include="Views\Login\ComfimForgetPassword.cshtml" />
+    <Content Include="Views\Login\NewPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
