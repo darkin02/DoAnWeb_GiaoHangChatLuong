@@ -1,0 +1,62 @@
+﻿@model GiaoHangTietKiem.Models.KhachNhan
+
+@{
+    ViewBag.Title = "DeleteRecipients";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="header-elements">XOÁ KHÁCH NHẬN</h2>
+<h3 class="header-elements">Bạn có chắc muốn xoá khác nhận này?</h3>
+<style>
+    .header-elements {
+        margin: 20px;
+    }
+</style>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenKN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenKN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioiTinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioiTinh)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Trở lại", "IndexRecipients")
+        </div>
+    }
+</div>

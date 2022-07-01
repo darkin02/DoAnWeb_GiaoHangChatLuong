@@ -1,0 +1,69 @@
+﻿@model IEnumerable<GiaoHangTietKiem.Models.TuyenDuong>
+
+@{
+    ViewBag.Title = "IndexCommend";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="header-elements">DANH SÁCH TUYÊN DƯƠNG</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "CreateCommend")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenTD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThoiGian)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaKhoBD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaKhoKT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaLVC)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenTD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGian)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaKhoBD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaKhoKT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaLVC)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "EditCommend", new { id = item.MaTD.Replace(" ", "") }) |
+                @Html.ActionLink("Chi tiết", "DetailsCommend", new { id = item.MaTD.Replace(" ", "") }) |
+                @Html.ActionLink("Xoá", "DeleteCommend", new { id = item.MaTD.Replace(" ", "") })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<style>
+    .header-elements {
+        margin: 20px;
+    }
+
+    .textDesign {
+        margin-left: 20px;
+    }
+</style>

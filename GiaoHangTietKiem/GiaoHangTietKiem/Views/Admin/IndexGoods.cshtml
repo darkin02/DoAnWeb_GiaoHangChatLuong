@@ -1,0 +1,69 @@
+﻿@model IEnumerable<GiaoHangTietKiem.Models.HangHoa>
+
+@{
+    ViewBag.Title = "IndexGoods";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="header-elements">DANH SÁCH CÁC MẶT HÀNG</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "CreateGoods")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenHH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DonVT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaLHH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GiaTien)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenHH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoTa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonVT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaLHH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaTien)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "EditGoods", new { id = item.MaHH.Replace(" ", "") }) |
+                @Html.ActionLink("Chi tiết", "DetailsGoods", new { id = item.MaHH.Replace(" ", "") }) |
+                @Html.ActionLink("Xoá", "DeleteGoods", new { id = item.MaHH.Replace(" ", "") })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<style>
+    .header-elements {
+        margin: 20px;
+    }
+
+    .textDesign {
+        margin-left: 20px;
+    }
+</style>
